@@ -42,7 +42,7 @@ def read_employment_data_of_year(year, target_feature, excel_path = "data/05-Lab
     df.columns = ['Region', target_feature]
     df = df.dropna()
     df = df.sort_values(by=target_feature, ascending=True)
-    return df
+    return df.reset_index(drop=True)
 
 
 # In[5]:
