@@ -89,35 +89,35 @@ Georgia_geodf = geopandas.read_file('data/GADM/gadm40_GEO_shp/gadm40_GEO_1.shp')
 # In[9]:
 
 
-print(Georgia_geodf['NAME_1'].unique())
+# print(Georgia_geodf['NAME_1'].unique())
 
 
 # In[10]:
 
 
-print('Check if there is any mismatch in region names between data and map:')
-df.set_index('Region').index.difference(Georgia_geodf['NAME_1'].unique())
+# print('Check if there is any mismatch in region names between data and map:')
+# df.set_index('Region').index.difference(Georgia_geodf['NAME_1'].unique())
 
 
 # In[11]:
 
 
-print('Resolving name mismatch detected earlier in order to connect employment data to map data...')
+# print('Resolving name mismatch detected earlier in order to connect employment data to map data...')
 df = df.replace({'Adjara A/R':'Ajaria', 'Racha-Lechkhumi and Kvemo-Svaneti':'Racha-Lechkhumi-Kvemo Svaneti'})
 
 
 # In[12]:
 
 
-print('Checking if mismatch is resolved (expecting no region names):')
-df.set_index('Region').index.difference(Georgia_geodf['NAME_1'].unique())
+# print('Checking if mismatch is resolved (expecting no region names):')
+# df.set_index('Region').index.difference(Georgia_geodf['NAME_1'].unique())
 
 
 # In[13]:
 
 
 merged_geodf = Georgia_geodf.merge(df, left_on='NAME_1', right_on='Region', how='left').fillna(0)
-print(f"Map data with statistics for the {len(Georgia_geodf['NAME_1'].unique())} regions is ready.")
+print(f"Map data with statistics for the {len(Georgia_geodf['NAME_1'].unique())} regions of Georgia is ready.")
 
 
 # In[14]:
