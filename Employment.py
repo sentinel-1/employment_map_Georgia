@@ -69,7 +69,7 @@ display(df)
 
 plt.figure(figsize=(18,9))
 plt.barh(data=df.loc[df['Region'] !='Georgia'], y='Region', width=target_feature)
-plt.title(f'{year} - {target_feature} in Georgia by Regions')
+plt.title(f'{year} - {target_feature} by Regions in Georgia')
 plt.xlabel('Thousand Persons')
 plt.show()
 
@@ -132,7 +132,16 @@ merged_geodf.plot(
     cmap='coolwarm'
 )
 plt.gca().set_axis_off()
-plt.title(f'{year} - {target_feature} in Georgia by Regions')
+plt.title(f'{year} - {target_feature} by Regions in Georgia',
+          fontdict={
+              'fontsize': 16,
+              'fontweight': 'bold',
+              'color': '#444444',
+              'verticalalignment': 'baseline',
+              'horizontalalignment': 'center'
+          })
+plt.tight_layout()
+plt.gcf().savefig("map.png")
 plt.show()
 
 
