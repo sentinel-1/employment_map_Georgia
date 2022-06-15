@@ -44,7 +44,14 @@ if [[ ! -d "${ENV_BIN}" ]];then
 	mkdir -p "`dirname ${EXT_CONFIG_FILE}`" &&
 	cat <<EOF >> "${EXT_CONFIG_FILE}" &&
 {
-"maxNumberOutputs": 700,
+  "maxNumberOutputs": 700,
+  "codeCellConfig": {
+    "rulers": [
+      72,
+      79,
+      99
+    ]
+  }
 }
 EOF
 	mkdir -p "`dirname ${THEME_CONFIG_FILE}`" &&
