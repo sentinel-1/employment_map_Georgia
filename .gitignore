@@ -1,8 +1,14 @@
-map.png
-
 env_*/
 .jupyter/
 
+# Automatically generated map.png
+/map.png
+
+# Automatically generated html template for nbconvert
+OGP_classic/
+
+*.orig
+*.bak
 
 # macOS garbage
 .DS_Store
